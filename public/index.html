@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="maanaApp">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<head>
+		<title>Maana</title>
+		<!-- Styles -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/styles.css">
+	</head>
+	<body>
+		<div class="container" ng-controller="mainCtrl">
+			<div class="row">
+				<div class="col-sm-8">				
+					<form name="pathForm" ng-submit="submitForm()" novalidate>
+						<div class="form-group">
+							<label for="filePath">Path:</label>
+							<input type="text" name="filePath" class="form-control" ng-model="filePath" ng-pattern="/^((?:[\w]\:|\\)(\\[a-zA-Z_\-\s0-9\.]+)+)$/" placeholder="D:\Path here" required />														
+						</div>						
+						<div class="form-group">
+							<input type="submit" class="btn btn-primary" value="Show histogram">							
+						</div>
+					</form>			
+					
+						
+					
+				</div>		
+
+			</div>
+			<div class="row">
+				<div class="col-sm-8">
+					<div ng-messages="pathForm.filePath.$error" role="alert">
+						<p ng-message="required">Path is required *</p>
+						<p ng-message="pattern">The path is not valid *</p>	
+					</div>	
+				</div>
+			</div>
+			<div class="row">			
+				<div class="col-sm-12">
+					<img src="images/loading2.gif" alt="loading" role="loading" ng-show="showLoading == true"/>
+				</div>					
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<div id="histogram">		
+								
+					</div>
+				</div>			
+			</div>			
+		</div>				
+	</body>
+	<!-- Scripts -->
+	<!-- Encode UTF-8 due to greek chars inside d3 library -->
+	<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-resource.min.js"></script>	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.js"></script>
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>	
+	<script src="controllers/main.js"></script>
+</html>

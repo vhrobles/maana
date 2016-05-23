@@ -1,0 +1,26 @@
+body {
+	padding-top: 20px;
+}
+
+svg {
+    font: 10px sans-serif;
+}
+
+.bar {
+    stroke: white;
+    fill: steelBlue;
+
+}
+
+.axis path, .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+rect.move {
+    stroke: lightSteelBlue;
+    stroke-opacity: 0.3;
+    fill: lightSteelBlue;
+    fill-opacity: 0.1;
+}
